@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset ="UTF-8">
+    <meta  name = "viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+
+    <link rel="icon" type="image/png" href="/data/image/wikiquizpic.png"/>
+    <title> WikiQuiz </title>
+</head>
+
+<body>
+    <div class="center-screen">
+    <p class="paragraph-center" style="width: 70%;" > {{ result }}</p>
+    </div>
+
+  <div class="center-screen" class="row">
+    
+    {% for i in guesses %}
+
+    <div class="column" style="background-color:#FFB695;">
+        
+        <form method="post" action="/">
+            <h2>Column 1</h2>
+            <p> data1 </p>
+            <input type="submit" name="submit_button" value= {{ i }}  placeholder= "?"   >  
+        </form>
+
+        <div class="column" style="background-color:#10a4e8;">
+            <h2>Column 2</h2>
+            <p> {{ i }} </p>
+        </div>
+    </div>
+
+    {%endfor%}
+
+</colgroup>
+
+    </div>
+
+    <div class="center-screen">
+
+        <form method="post" action="/">
+            <input type="submit" name="submit_button" value="New Try">
+        </form>
+
+    </div>
+
+    <div class="center-screen">
+
+        <p>Points: {{ points }}</p>
+
+    </div>
+
+   
+
+</body>
+
+</html>
